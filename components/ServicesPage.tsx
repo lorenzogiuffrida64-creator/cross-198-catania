@@ -8,14 +8,13 @@ import ContactForm from './ContactForm';
 const ServicesPage: React.FC = () => {
   return (
     <div className="bg-black min-h-screen">
-      {/* Hero Header */}
+      {/* Hero Header - Simplified */}
       <section className="pt-32 md:pt-48 pb-16 md:pb-24 container mx-auto px-6 text-center reveal">
-        <span className="text-red-600 font-black uppercase tracking-[0.5em] text-[10px] md:text-[11px] mb-4 inline-block">Eccellenza in Ogni Disciplina</span>
         <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] font-black font-heading tracking-tighter uppercase italic leading-none mb-8">
-          I Nostri <span className="text-red-600">Servizi</span>.
+          I Nostri <span className="text-red-600">Servizi</span>
         </h1>
-        <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-2xl text-white/50 font-light leading-relaxed">
-          Dalle fondamenta del CrossFit alla precisione del Pilates. Offriamo una programmazione d'élite per ogni tipo di obiettivo fisico.
+        <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/40 font-light leading-relaxed">
+          Scegli il percorso perfetto per i tuoi obiettivi
         </p>
       </section>
 
@@ -44,32 +43,25 @@ const ServicesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Text Info */}
-              <div className="px-4">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-                  <div>
-                    <span className="text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">{service.subtitle}</span>
-                    <h3 className="text-3xl md:text-5xl font-black font-heading uppercase italic">{service.title}</h3>
-                  </div>
-                  <div className="flex gap-4">
-                    {service.benefits.slice(0, 2).map((benefit, bIdx) => (
-                      <div key={bIdx} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-[9px] font-black uppercase tracking-widest text-white/40">
-                        {benefit}
-                      </div>
-                    ))}
-                  </div>
+              {/* Text Info - Cleaner Layout */}
+              <div className="px-4 space-y-6">
+                {/* Title */}
+                <div>
+                  <span className="text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">{service.subtitle}</span>
+                  <h3 className="text-3xl md:text-5xl font-black font-heading uppercase italic">{service.title}</h3>
                 </div>
-                
-                <p className="text-white/40 text-base md:text-xl font-light leading-relaxed mb-8 max-w-2xl">
+
+                {/* Description */}
+                <p className="text-white/50 text-base md:text-lg font-light leading-relaxed max-w-xl">
                   {service.description}
                 </p>
 
-                <div className="pt-6 border-t border-white/5 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {/* Benefits - Clean List */}
+                <div className="flex flex-wrap gap-3 pt-4">
                   {service.benefits.map((benefit, bIdx) => (
-                    <div key={bIdx} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
-                      <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{benefit}</span>
-                    </div>
+                    <span key={bIdx} className="px-4 py-2 bg-white/5 rounded-full text-[10px] font-bold text-white/40 uppercase tracking-wider">
+                      {benefit}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -78,18 +70,16 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Additional Sections Required */}
-      <BrandCarousel />
-      <Testimonials />
-      <ContactForm />
-
-      {/* Floating Action Hint */}
-      <div className="py-24 text-center reveal">
-         <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.5em] mb-8">Non hai ancora deciso?</p>
-         <button className="text-white hover:text-red-600 transition-colors text-3xl md:text-5xl font-black font-heading italic uppercase flex items-center justify-center gap-4 mx-auto group">
-            Vieni a Provare <ArrowRight className="w-10 h-10 group-hover:translate-x-4 transition-transform" />
+      {/* Call to Action - Simplified */}
+      <div className="py-16 md:py-24 text-center reveal">
+         <button className="text-white hover:text-red-600 transition-colors text-2xl md:text-4xl font-black font-heading italic uppercase flex items-center justify-center gap-4 mx-auto group">
+            Prenota una Prova Gratuita <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
          </button>
       </div>
+
+      {/* Additional Sections */}
+      <Testimonials />
+      <ContactForm />
     </div>
   );
 };
