@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it" style="scroll-behavior: smooth; scroll-padding-top: 80px;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross 198 Catania | 100% Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .font-heading {
+        font-family: 'Montserrat', sans-serif;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #dc2626;
+        border-radius: 4px;
+      }
+      /* Beam Animation */
+      @keyframes beam-move {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+      }
+      .beam-animate {
+        animation: beam-move 3s infinite linear;
+      }
+      /* Spin Animation for Border Beam */
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin-slow {
+        animation: spin 3s infinite linear;
+      }
+
+      /* Optimized Global Reveal System */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
+      }
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.94) translateY(20px);
+        transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), 
+                    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
+      }
+      .reveal.is-visible, .reveal-scale.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Form Animations */
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+      }
+
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+      .shake {
+        animation: shake 0.4s ease-in-out;
+      }
+
+      /* Delays optimized for sequential flow */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      .delay-500 { transition-delay: 500ms; }
+      .delay-700 { transition-delay: 700ms; }
+      .delay-1000 { transition-delay: 1000ms; }
+
+      /* Smooth Underline Effect */
+      .underline-red {
+        position: relative;
+        display: inline-block;
+      }
+      .underline-red::after {
+        content: '';
+        position: absolute;
+        left: -2%;
+        bottom: -5px;
+        width: 104%;
+        height: 12px;
+        background: url("data:image/svg+xml,%3Csvg width='342' height='12' viewBox='0 0 342 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9C45.5 4.5 128.5 -1.5 339 3' stroke='%23dc2626' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+        opacity: 0.8;
+      }
+
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      
+      .animate-marquee {
+        animation: marquee 60s linear infinite;
+        will-change: transform;
+      }
+      
+      @media (max-width: 768px) {
+        .animate-marquee {
+          animation-duration: 30s;
+        }
+        .animate-marquee-slow {
+          animation-duration: 60s !important;
+        }
+      }
+
+      .animate-marquee-slow {
+        animation: marquee 120s linear infinite;
+        will-change: transform;
+      }
+      .animate-marquee:hover, .animate-marquee-slow:hover {
+        animation-play-state: paused;
+      }
+
+      /* Particle Drift */
+      @keyframes float {
+        0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+      }
+      .particle {
+        position: absolute;
+        background: rgba(220, 38, 38, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float var(--duration) infinite linear;
+      }
+
+      /* Hero Content Gradient Pulse */
+      @keyframes hero-gradient-pulse {
+        0%, 100% { opacity: 0.4; transform: scale(1) translate(-50%, -50%); }
+        50% { opacity: 0.7; transform: scale(1.1) translate(-45%, -45%); }
+      }
+      .animate-hero-pulse {
+        animation: hero-gradient-pulse 10s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
