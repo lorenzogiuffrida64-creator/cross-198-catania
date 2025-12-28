@@ -113,18 +113,22 @@ const ContactForm: React.FC = () => {
 
         {/* Centered Form */}
         <div className="max-w-4xl mx-auto reveal delay-200">
-          <div className="p-8 md:p-12 lg:p-16 rounded-[3rem] bg-zinc-950/50 border border-white/5 backdrop-blur-xl shadow-2xl">
+          <div className="p-6 sm:p-8 md:p-10 lg:p-12 rounded-[3rem] bg-zinc-950/50 border border-white/5 backdrop-blur-xl shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Nome e Cognome</label>
+                  <label htmlFor="nome" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Nome e Cognome</label>
                   <div className="relative group">
                     <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${errors.nome ? 'text-red-500' : 'text-white/20 group-focus-within:text-red-600'}`} />
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
+                      id="nome"
                       name="nome"
                       value={formData.nome}
                       onChange={handleChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.nome}
                       className={`w-full bg-white/[0.03] border rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-white/10 focus:outline-none transition-all ${
                         errors.nome ? 'border-red-600 bg-red-600/5' : 'border-white/10 focus:border-red-600/50 focus:bg-white/[0.05]'
                       }`}
@@ -134,14 +138,18 @@ const ContactForm: React.FC = () => {
                   {renderError(errors.nome)}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Email</label>
+                  <label htmlFor="email" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Email</label>
                   <div className="relative group">
                     <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${errors.email ? 'text-red-500' : 'text-white/20 group-focus-within:text-red-600'}`} />
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
+                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.email}
                       className={`w-full bg-white/[0.03] border rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-white/10 focus:outline-none transition-all ${
                         errors.email ? 'border-red-600 bg-red-600/5' : 'border-white/10 focus:border-red-600/50 focus:bg-white/[0.05]'
                       }`}
@@ -152,16 +160,20 @@ const ContactForm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Numero di Telefono</label>
+                  <label htmlFor="telefono" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Numero di Telefono</label>
                   <div className="relative group">
                     <Phone className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${errors.telefono ? 'text-red-500' : 'text-white/20 group-focus-within:text-red-600'}`} />
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
+                      id="telefono"
                       name="telefono"
                       value={formData.telefono}
                       onChange={handleChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.telefono}
                       className={`w-full bg-white/[0.03] border rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-white/10 focus:outline-none transition-all ${
                         errors.telefono ? 'border-red-600 bg-red-600/5' : 'border-white/10 focus:border-red-600/50 focus:bg-white/[0.05]'
                       }`}
@@ -171,14 +183,18 @@ const ContactForm: React.FC = () => {
                   {renderError(errors.telefono)}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Oggetto</label>
+                  <label htmlFor="oggetto" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Oggetto</label>
                   <div className="relative group">
                     <Tag className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${errors.oggetto ? 'text-red-500' : 'text-white/20 group-focus-within:text-red-600'}`} />
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
+                      id="oggetto"
                       name="oggetto"
                       value={formData.oggetto}
                       onChange={handleChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.oggetto}
                       className={`w-full bg-white/[0.03] border rounded-2xl py-4 pl-12 pr-6 text-white placeholder:text-white/10 focus:outline-none transition-all ${
                         errors.oggetto ? 'border-red-600 bg-red-600/5' : 'border-white/10 focus:border-red-600/50 focus:bg-white/[0.05]'
                       }`}
@@ -190,14 +206,18 @@ const ContactForm: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Descrizione Libera</label>
+                <label htmlFor="messaggio" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 ml-2">Descrizione Libera</label>
                 <div className="relative group">
                   <MessageSquare className={`absolute left-4 top-6 w-4 h-4 transition-colors ${errors.messaggio ? 'text-red-500' : 'text-white/20 group-focus-within:text-red-600'}`} />
-                  <textarea 
+                  <textarea
+                    id="messaggio"
                     name="messaggio"
                     rows={5}
                     value={formData.messaggio}
                     onChange={handleChange}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.messaggio}
                     className={`w-full bg-white/[0.03] border rounded-3xl py-5 pl-12 pr-6 text-white placeholder:text-white/10 focus:outline-none transition-all resize-none ${
                       errors.messaggio ? 'border-red-600 bg-red-600/5' : 'border-white/10 focus:border-red-600/50 focus:bg-white/[0.05]'
                     }`}
@@ -208,12 +228,12 @@ const ContactForm: React.FC = () => {
               </div>
 
               <div className="pt-4">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-6 flex items-center justify-center gap-3 text-lg transition-all ${
                     Object.keys(errors).length > 0 ? 'shake' : ''
-                  }`}
+                  } ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
                     <span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />

@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-600/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-20 md:gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16 md:gap-20 mb-24">
           
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-6 flex flex-col items-center md:items-start text-center md:text-left reveal space-y-10">

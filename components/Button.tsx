@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, className, ...props }) => {
+const Button: React.FC<ButtonProps> = React.memo(({ variant = 'primary', children, className, ...props }) => {
   if (variant === 'primary') {
     return (
       <button
@@ -36,6 +36,8 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, classNam
       {children}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';
 
 export default Button;

@@ -3,7 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cross 198 Catania | 100% Fitness</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Cross 198 Catania | Elite CrossFit Box - Allenamento Funzionale a Catania</title>
+    <meta name="title" content="Cross 198 Catania | Elite CrossFit Box - Allenamento Funzionale a Catania" />
+    <meta name="description" content="Cross 198 è il box CrossFit più forte di Catania. Allenamento funzionale, community di 500+ atleti, corsi personalizzati. Prova gratuita disponibile!" />
+    <meta name="keywords" content="CrossFit Catania, palestra Catania, allenamento funzionale, CrossFit box, fitness Catania, Cross 198, functional training, gym Catania" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Italian" />
+    <meta name="author" content="Cross 198 Catania" />
+    <meta name="theme-color" content="#dc2626" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cross198catania.it" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cross198catania.it" />
+    <meta property="og:title" content="Cross 198 Catania | Elite CrossFit Box" />
+    <meta property="og:description" content="Il box CrossFit dove la fatica si trasforma in eccellenza. Community di 500+ atleti nel cuore di Catania. Prova gratuita disponibile!" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Cross 198 Catania" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://cross198catania.it" />
+    <meta name="twitter:title" content="Cross 198 Catania | Elite CrossFit Box" />
+    <meta name="twitter:description" content="Il box CrossFit dove la fatica si trasforma in eccellenza. Community di 500+ atleti nel cuore di Catania." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.im.ge/2025/12/28/BEXvGm.ChatGPT-Image-27-dic-2025-20-31-30.png" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +195,18 @@
       .animate-hero-pulse {
         animation: hero-gradient-pulse 10s ease-in-out infinite;
       }
+
+      /* Accessibility: Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   <script type="importmap">
 {
@@ -175,6 +219,52 @@
 }
 </script>
 <link rel="stylesheet" href="/index.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Cross 198 Catania",
+      "description": "Elite CrossFit Box a Catania specializzato in allenamento funzionale e CrossFit",
+      "url": "https://cross198catania.it",
+      "logo": "https://i.im.ge/2025/12/28/BEXvGm.ChatGPT-Image-27-dic-2025-20-31-30.png",
+      "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200",
+      "telephone": "+39 3921905871",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Federico Confalonieri, 9c",
+        "addressLocality": "Catania",
+        "addressRegion": "CT",
+        "postalCode": "95100",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "37.5079",
+        "longitude": "15.0830"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "06:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "priceRange": "€€",
+      "sameAs": [
+        "https://www.instagram.com/100x100fitness_catania",
+        "https://www.facebook.com/p/Cross198Catania-100062953823636/"
+      ]
+    }
+    </script>
 </head>
   <body>
     <div id="root"></div>

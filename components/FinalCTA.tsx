@@ -24,10 +24,10 @@ const FinalCTA: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 pt-6 relative z-10 reveal delay-400">
-            <Button className="w-full sm:w-auto text-xl px-16 py-7 shadow-2xl">
+            <Button className="w-full sm:w-auto text-lg sm:text-xl px-16 py-7 shadow-2xl">
               Prenota Ora
             </Button>
-            <Button variant="secondary" className="w-full sm:w-auto text-xl px-16 py-7 bg-white/5 backdrop-blur-xl border-white/10">
+            <Button variant="secondary" className="w-full sm:w-auto text-lg sm:text-xl px-16 py-7 bg-white/5 backdrop-blur-xl border-white/10">
               Chiedi Info
             </Button>
           </div>

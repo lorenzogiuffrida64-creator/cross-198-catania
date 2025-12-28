@@ -88,7 +88,7 @@ const Features: React.FC = () => {
       </div>
 
       {/* Pinned Scroll Storytelling Section */}
-      <div ref={containerRef} className="relative h-[400vh]">
+      <div ref={containerRef} className="relative h-[300vh] md:h-[400vh]">
         <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
           
           {/* Main Visual Frames */}
@@ -102,10 +102,11 @@ const Features: React.FC = () => {
                     : 'opacity-0 scale-105 translate-y-10 pointer-events-none'
                 }`}
               >
-                <img 
-                  src={step.img} 
-                  className="w-full h-full object-cover" 
-                  alt={step.title} 
+                <img
+                  src={step.img}
+                  className="w-full h-full object-cover"
+                  alt={step.title}
+                  loading="lazy"
                 />
                 
                 {/* Immersive Overlays */}
@@ -116,7 +117,7 @@ const Features: React.FC = () => {
           </div>
 
           {/* Fixed Text Content Layer - Now Centered */}
-          <div className="relative z-10 container mx-auto px-6 pointer-events-none text-center h-full flex items-center justify-center max-w-[1400px]">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 pointer-events-none text-center h-full flex items-center justify-center max-w-[1400px]">
             <div className="w-full relative min-h-[50vh] flex flex-col items-center">
               {storyData.map((step, idx) => (
                 <div 
@@ -130,7 +131,7 @@ const Features: React.FC = () => {
                   <span className="text-red-600 font-black tracking-[0.5em] uppercase text-[10px] md:text-xs mb-4 md:mb-8 text-center">
                     {step.subtitle}
                   </span>
-                  <h3 className={`text-6xl sm:text-8xl md:text-[9rem] lg:text-[11rem] xl:text-[13rem] font-black font-heading leading-none tracking-tighter mb-6 md:mb-10 ${step.accent} drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] uppercase italic text-center`}>
+                  <h3 className={`text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-black font-heading leading-none tracking-tighter mb-6 md:mb-10 px-4 ${step.accent} drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] uppercase italic text-center`}>
                     {step.title}<span className="text-red-600 not-italic">.</span>
                   </h3>
                   <p className="text-base sm:text-xl md:text-2xl xl:text-3xl text-white/60 font-light max-w-2xl leading-relaxed drop-shadow-lg text-center mx-auto">

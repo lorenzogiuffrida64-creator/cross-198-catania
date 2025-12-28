@@ -7,16 +7,17 @@ const Hero: React.FC = () => {
     <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center pt-40 pb-16 md:pt-48 lg:pt-64 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
-          alt="Interno palestra Cross 198" 
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+          alt="Interno palestra Cross 198"
           className="w-full h-full object-cover grayscale-[30%]"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-black/75 md:bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 z-10 flex flex-col items-center justify-center w-full max-w-[1600px]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 z-10 flex flex-col items-center justify-center w-full max-w-[1600px]">
         {/* Soft Animated Gradient Container */}
         <div className="relative w-full">
           {/* Animated Background Blob */}
@@ -32,11 +33,11 @@ const Hero: React.FC = () => {
               </div>
             </div>
             
-            <h1 className="w-full flex flex-col items-center text-center text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] font-black font-heading leading-[1.1] md:leading-[1] tracking-tighter text-white">
+            <h1 className="w-full flex flex-col items-center text-center text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] xl:text-[11rem] font-black font-heading leading-[1.1] md:leading-[1] tracking-tighter text-white">
               <div className="reveal delay-200 block w-full">
                 L'<span className="text-red-600 underline-red">Allenamento</span>
               </div>
-              <div className="reveal delay-300 block w-full text-white text-4xl sm:text-5xl md:text-7xl lg:text-[7rem] xl:text-[8rem]">
+              <div className="reveal delay-300 block w-full text-white text-3xl sm:text-4xl md:text-6xl lg:text-[7rem] xl:text-[8rem]">
                 è il miglior
               </div>
               <div className="reveal delay-400 block w-full">

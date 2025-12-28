@@ -24,11 +24,13 @@ const Testimonials: React.FC = () => {
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-60 z-20 bg-gradient-to-l from-black via-black/90 to-transparent pointer-events-none" />
         
         {/* The Marquee Wrapper - w-max is critical for percentage-based transforms */}
-        <div className="flex w-max animate-marquee whitespace-nowrap gap-6 md:gap-12 py-10 md:py-24">
+        <div className="flex w-max animate-marquee whitespace-nowrap gap-4 sm:gap-6 md:gap-8 lg:gap-12 py-10 md:py-24">
           {doubledTestimonials.map((t, idx) => (
-            <div 
+            <div
               key={`${t.id}-${idx}`}
-              className="inline-block w-[300px] md:w-[500px] shrink-0 p-8 md:p-14 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between hover:border-red-600/50 hover:bg-white/[0.05] transition-all duration-700 group cursor-default select-none shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-sm"
+              className="inline-block w-[280px] sm:w-[320px] md:w-[400px] lg:w-[500px] shrink-0 p-8 md:p-14 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between hover:border-red-600/50 hover:bg-white/[0.05] transition-all duration-700 group cursor-default select-none shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-sm"
+              role="article"
+              aria-label={`Testimonial from ${t.name}`}
             >
               <div className="space-y-10 h-full flex flex-col justify-between whitespace-normal">
                 <div className="relative">
@@ -41,10 +43,11 @@ const Testimonials: React.FC = () => {
                 <div className="flex items-center gap-6 mt-auto">
                   <div className="relative">
                     <div className="absolute inset-0 bg-red-600/30 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <img 
-                      src={t.avatar} 
-                      className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/10 grayscale group-hover:grayscale-0 group-hover:border-red-600 transition-all duration-700 object-cover shadow-xl" 
-                      alt={t.name} 
+                    <img
+                      src={t.avatar}
+                      className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/10 grayscale group-hover:grayscale-0 group-hover:border-red-600 transition-all duration-700 object-cover shadow-xl"
+                      alt={t.name}
+                      loading="lazy"
                     />
                   </div>
                   <div className="flex flex-col">

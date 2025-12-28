@@ -30,10 +30,11 @@ const ServicesPage: React.FC = () => {
             >
               {/* Image Container */}
               <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[2.5rem] overflow-hidden mb-8 border border-white/5">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
+                <img
+                  src={service.image}
+                  alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 

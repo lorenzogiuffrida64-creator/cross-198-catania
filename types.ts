@@ -23,4 +23,11 @@ export interface Service {
   image: string;
 }
 
+export interface NavLink {
+  name: string;
+  action?: () => void;
+  href?: string;
+  type: string;
+}
+
 export type PageType = 'home' | 'community' | 'servizi';

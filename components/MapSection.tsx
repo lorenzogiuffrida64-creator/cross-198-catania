@@ -20,7 +20,7 @@ const MapSection: React.FC = () => {
         </div>
 
         <div className="reveal-scale delay-200">
-          <div className="relative w-full rounded-[3rem] overflow-hidden border border-white/5 shadow-[0_40px_100px_rgba(0,0,0,0.9)] bg-zinc-950 aspect-video md:aspect-[21/9] lg:aspect-[3/1] min-h-[400px]">
+          <div className="relative w-full rounded-[3rem] overflow-hidden border border-white/5 shadow-[0_40px_100px_rgba(0,0,0,0.9)] bg-zinc-950 aspect-video md:aspect-[16/10] lg:aspect-[21/9] min-h-[400px]">
             {/* Google Map Iframe - Colored version */}
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7079.998890446819!2d15.0603317!3d37.508341699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313e2cdefa96c4f%3A0x9902a3cc4a2902cd!2s100%25%20Fitness%20Cross198Catania!5e1!3m2!1sit!2sit!4v1766937172713!5m2!1sit!2sit" 

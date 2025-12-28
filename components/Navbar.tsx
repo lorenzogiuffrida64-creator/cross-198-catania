@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Instagram, Facebook, ArrowRight, MapPin, Phone } from 'lucide-react';
-import { PageType } from '../types';
+import { PageType, NavLink } from '../types';
 
 interface NavbarProps {
   onNavigate: (page: PageType) => void;
@@ -23,16 +23,26 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
     } else {
       document.body.style.overflow = 'unset';
     }
+
+    // Handle Escape key to close menu
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: 'Home', action: () => onNavigate('home'), type: 'home' },
     { name: 'Servizi', action: () => onNavigate('servizi'), type: 'servizi' },
     { name: 'Community', action: () => onNavigate('community'), type: 'community' },
     { name: 'Contatti', href: '#contact', type: 'section' },
   ];
 
-  const handleLinkClick = (link: any) => {
+  const handleLinkClick = (link: NavLink) => {
     setIsOpen(false);
     if (link.action) {
       link.action();
@@ -48,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
             : 'bg-transparent py-6 md:py-10'
         }`}
       >
-        <div className="container mx-auto px-6 flex items-center max-w-[1600px]">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center max-w-[1600px]">
           
           {/* LEFT: Logo & Brand */}
           <div className="flex-1 flex items-center">
@@ -97,10 +107,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
           {/* RIGHT: Mobile Menu Trigger */}
           <div className="flex-1 flex items-center justify-end gap-4">
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
+            <button
+              onClick={() => setIsOpen(!isOpen)}
               className={`flex items-center justify-center bg-white/5 rounded-2xl border border-white/10 md:hidden active:scale-90 transition-all z-[110] relative ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`}
-              aria-label="Toggle menu"
+              aria-label={isOpen ? "Close navigation" : "Toggle menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
