@@ -173,18 +173,57 @@
         animation-play-state: paused;
       }
 
-      /* Particle Drift */
+      /* Enhanced Particle Animations */
       @keyframes float {
         0% { transform: translateY(0px) translateX(0px); opacity: 0; }
-        50% { opacity: 0.5; }
-        100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        10% { opacity: 0.5; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-100vh) translateX(var(--horizontal-move)); opacity: 0; }
       }
-      .particle {
+
+      @keyframes float-diagonal {
+        0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.6; }
+        50% { opacity: 0.4; }
+        90% { opacity: 0.2; }
+        100% { transform: translateY(-100vh) translateX(calc(var(--horizontal-move) * 1.5)) rotate(360deg); opacity: 0; }
+      }
+
+      @keyframes float-zigzag {
+        0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+        10% { opacity: 0.5; }
+        25% { transform: translateY(-25vh) translateX(calc(var(--horizontal-move) * 0.5)); }
+        50% { transform: translateY(-50vh) translateX(calc(var(--horizontal-move) * -0.3)); opacity: 0.4; }
+        75% { transform: translateY(-75vh) translateX(calc(var(--horizontal-move) * 0.8)); }
+        90% { opacity: 0.2; }
+        100% { transform: translateY(-100vh) translateX(var(--horizontal-move)); opacity: 0; }
+      }
+
+      .particle-enhanced {
         position: absolute;
-        background: rgba(220, 38, 38, 0.4);
-        border-radius: 50%;
         pointer-events: none;
-        animation: float var(--duration) infinite linear;
+        will-change: transform, opacity;
+      }
+
+      .particle-enhanced.float {
+        animation: float var(--duration, 30s) infinite linear;
+      }
+
+      .particle-enhanced.float-diagonal {
+        animation: float-diagonal var(--duration, 35s) infinite ease-in-out;
+      }
+
+      .particle-enhanced.float-zigzag {
+        animation: float-zigzag var(--duration, 40s) infinite ease-in-out;
+      }
+
+      /* Glowing Particles */
+      .particle-glow {
+        position: absolute;
+        pointer-events: none;
+        border-radius: 50%;
+        will-change: transform, opacity;
+        animation: float-diagonal var(--duration, 35s) infinite ease-in-out;
       }
 
       /* Hero Content Gradient Pulse */

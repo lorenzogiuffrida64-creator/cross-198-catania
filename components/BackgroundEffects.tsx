@@ -9,23 +9,37 @@ interface Particle {
   opacity: number;
   color: string;
   blur: string;
+  horizontalMove: string;
+  animationType: 'float' | 'float-diagonal' | 'float-zigzag';
 }
 
 const BackgroundEffects: React.FC = () => {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const p = Array.from({ length: 60 }).map((_, i) => {
-      const isRed = Math.random() > 0.7;
+    // Create more particles with varied properties for a richer effect
+    const p = Array.from({ length: 120 }).map((_, i) => {
+      const isRed = Math.random() > 0.65; // More red particles
+      const size = Math.random();
+
+      // Determine animation type for variety
+      let animationType: 'float' | 'float-diagonal' | 'float-zigzag';
+      const rand = Math.random();
+      if (rand > 0.66) animationType = 'float-zigzag';
+      else if (rand > 0.33) animationType = 'float-diagonal';
+      else animationType = 'float';
+
       return {
         id: i,
         left: `${Math.random() * 100}%`,
-        duration: `${15 + Math.random() * 25}s`,
-        delay: `${Math.random() * -20}s`, // Negative delay so they start at different positions
-        size: `${1 + Math.random() * 3}px`,
-        opacity: 0.1 + Math.random() * 0.4,
+        duration: `${20 + Math.random() * 40}s`, // Slower, more graceful movement
+        delay: `${Math.random() * -30}s`,
+        size: size > 0.9 ? `${3 + Math.random() * 4}px` : `${0.5 + Math.random() * 2.5}px`, // Some larger particles
+        opacity: 0.05 + Math.random() * 0.35,
         color: isRed ? '#dc2626' : '#71717a',
-        blur: Math.random() > 0.5 ? 'blur(1px)' : 'none',
+        blur: Math.random() > 0.4 ? `blur(${0.5 + Math.random() * 2}px)` : 'none',
+        horizontalMove: `${-30 + Math.random() * 60}px`, // Horizontal drift
+        animationType,
       };
     });
     setParticles(p);
@@ -46,11 +60,11 @@ const BackgroundEffects: React.FC = () => {
       <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-red-900/10 blur-[150px] rounded-full animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-zinc-900/30 blur-[120px] rounded-full" />
       
-      {/* Particles Layer */}
+      {/* Enhanced Particles Layer with Multiple Animation Types */}
       {particles.map((p) => (
         <div
           key={p.id}
-          className="particle"
+          className={`particle-enhanced ${p.animationType}`}
           style={{
             left: p.left,
             bottom: '-5%',
@@ -61,8 +75,31 @@ const BackgroundEffects: React.FC = () => {
             filter: p.blur,
             animationDuration: p.duration,
             animationDelay: p.delay,
-            '--duration': p.duration, // For the CSS keyframe if used
-          } as any}
+            '--horizontal-move': p.horizontalMove,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0%', // Mix of circles and squares
+          } as React.CSSProperties & { '--horizontal-move': string }}
+        />
+      ))}
+
+      {/* Special Glowing Particles - Larger with glow effect */}
+      {particles.slice(0, 15).map((p) => (
+        <div
+          key={`glow-${p.id}`}
+          className="particle-glow float-diagonal"
+          style={{
+            left: p.left,
+            bottom: '-10%',
+            width: `${5 + Math.random() * 8}px`,
+            height: `${5 + Math.random() * 8}px`,
+            backgroundColor: p.color === '#dc2626' ? '#dc2626' : '#ffffff',
+            opacity: 0.15 + Math.random() * 0.2,
+            animationDuration: `${30 + Math.random() * 50}s`,
+            animationDelay: `${Math.random() * -40}s`,
+            '--horizontal-move': `${-40 + Math.random() * 80}px`,
+            boxShadow: p.color === '#dc2626'
+              ? '0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.3)'
+              : '0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2)',
+          } as React.CSSProperties & { '--horizontal-move': string }}
         />
       ))}
 
