@@ -1,7 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { SERVICES, IconMap } from '../constants';
-import BrandCarousel from './BrandCarousel';
 import Testimonials from './Testimonials';
 import ContactForm from './ContactForm';
 
@@ -69,13 +67,6 @@ const ServicesPage: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Call to Action - Simplified */}
-      <div className="py-16 md:py-24 text-center reveal">
-         <button className="text-white hover:text-red-600 transition-colors text-2xl md:text-4xl font-black font-heading italic uppercase flex items-center justify-center gap-4 mx-auto group">
-            Prenota una Prova Gratuita <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
-         </button>
-      </div>
 
       {/* Additional Sections */}
       <Testimonials />
